@@ -22,6 +22,28 @@ powershell -Command "Add-MpPreference -ExclusionPath \"%SCRIPT_PATH%\""
 
 cd /d "%SCRIPT_PATH%"
 
+:: Option to download Revo Uninstaller Pro
+echo.
+echo Do You Want To Download Revo Uninstaller Pro? (Y/N)
+set /p "revoChoice=Type Y to download or any key to skip: "
+if /I "%revoChoice%"=="Y" (
+    powershell -Command "Invoke-WebRequest -Uri https://f3b1cfc5d488c0384dc3-056ccca39cd416ca6db85fa26f78b9ef.ssl.cf1.rackcdn.com/RevoUninstaller_Portable.zip -OutFile .\Revo_Uninstaller_Pro.zip"
+    echo Revo Uninstaller Pro downloaded successfully.
+) else (
+    echo Skipping Revo Uninstaller Pro download.
+)
+
+tar -xf "%SCRIPT_PATH%\Revo_Uninstaller_Pro.zip"
+
+pause
+
+echo.
+echo Starting Revo_Uninstaller_Pro
+echo.
+
+"%SCRIPT_PATH%\RevoUninstaller_Portable\RevoUPort.exe"
+
+pause
 
 echo.
 echo Do You Want To Download dControl?
