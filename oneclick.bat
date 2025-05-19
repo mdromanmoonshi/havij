@@ -53,6 +53,10 @@ powershell -Command "Invoke-WebRequest https://www.darknet.org.uk/content/files/
 
 pause
 
+echo.
+echo Havij downloaded successfully!
+echo.
+
 :: Extract the ZIP using WinRAR
 set zipFile=%~dp0Havij_1.12_Free.zip
 set password=darknet123
