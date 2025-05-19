@@ -1,6 +1,19 @@
 @echo off
 Title Arena Havij Installer
 
+:: Ensure the script is running as administrator
+>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
+if '%errorlevel%' NEQ '0' (
+    echo.
+    echo *********************************************************
+    echo     Please run this script as Administrator...
+    echo     Relaunching as Administrator...
+    echo *********************************************************
+    echo.
+    powershell -Command "Start-Process '%~f0' -Verb RunAs"
+    exit /b
+)
+
 :: Get the current script path
 set "SCRIPT_PATH=%~dp0"
 
@@ -9,10 +22,16 @@ echo 	Havij Installer by Arena Web Security
 echo ::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo.
 echo.
-echo Creating Arena Safe folder
+echo Turn off every Virus and Threat Protection
 echo.
 
-powershell -Command "Add-MpPreference -ExclusionPath \"%SCRIPT_PATH%\""
+set tCommand=
+for /f "tokens=*" %%i in ('echo %ProgramFiles%\Windows Defender\MSASCui.exe') do set tCommand=%%i
+if not exist "%tCommand%" set tCommand=windowsdefender://Threatsettings
+start "" "%tCommand%"
+
+:: Add the script path to Defender exclusion list
+powershell -Command "Add-MpPreference -ExclusionPath '%SCRIPT_PATH%'"
 
 cd /d "%SCRIPT_PATH%"
 
@@ -21,15 +40,10 @@ echo Do You Want To Download WinRAR?
 echo.
 
 pause
-:: Download WinRar using PowerShell
-::powershell -Command "Invoke-WebRequest https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x64-711.exe -OutFile .\winrar-x64-711.exe"
 
 start msedge.exe https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x64-711.exe
 
 pause
-
-::"%SCRIPT_PATH%\winrar-x64-711.exe"
-
 
 echo.
 echo Do You Want To Download Havij?
@@ -39,7 +53,6 @@ pause
 
 :: Download Havij using PowerShell
 powershell -Command "Invoke-WebRequest https://www.darknet.org.uk/content/files/Havij_1.12_Free.zip -OutFile .\Havij_1.12_Free.zip"
-
 
 pause
 
