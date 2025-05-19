@@ -9,7 +9,7 @@ echo 	Havij Installer by Arena Web Security
 echo ::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo.
 echo.
-echo Turn off every Virus and Threat Protection
+echo Creating Arena Safe folder
 echo.
 
 powershell -Command "Add-MpPreference -ExclusionPath \"%SCRIPT_PATH%\""
@@ -22,11 +22,13 @@ echo.
 
 pause
 :: Download WinRar using PowerShell
-powershell -Command "Invoke-WebRequest https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x64-711.exe -OutFile .\winrar-x64-711.exe"
+::powershell -Command "Invoke-WebRequest https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x64-711.exe -OutFile .\winrar-x64-711.exe"
+
+start msedge.exe https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x64-711.exe
 
 pause
 
-"%SCRIPT_PATH%\winrar-x64-711.exe"
+::"%SCRIPT_PATH%\winrar-x64-711.exe"
 
 
 echo.
