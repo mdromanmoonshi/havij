@@ -50,12 +50,11 @@ pause
 
 :: Download Havij using PowerShell
 powershell -Command "Invoke-WebRequest https://www.darknet.org.uk/content/files/Havij_1.12_Free.zip -OutFile .\Havij_1.12_Free.zip"
-
-pause
-
 echo.
 echo Havij downloaded successfully!
 echo.
+pause
+
 
 :: Extract the ZIP using WinRAR
 set zipFile=%~dp0Havij_1.12_Free.zip
