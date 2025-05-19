@@ -35,7 +35,9 @@ echo Do You Want To Download WinRAR?
 echo.
 
 pause
-
+echo.
+echo Please install WinRaR what you have downloaded!
+echo.
 start msedge.exe https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x64-711.exe
 
 pause
@@ -45,9 +47,7 @@ echo Do You Want To Download Havij?
 echo.
 
 pause
-echo.
-echo Please install WinRaR what you have downloaded!
-echo.
+
 :: Download Havij using PowerShell
 powershell -Command "Invoke-WebRequest https://www.darknet.org.uk/content/files/Havij_1.12_Free.zip -OutFile .\Havij_1.12_Free.zip"
 
